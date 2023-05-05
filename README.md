@@ -1,6 +1,9 @@
 # FnxHub
 First, clone project and then run command "npm install". 
+
 After that you would be able to start client project with command "ng serve". :)
+
+In search screen I used "debounce" rxjs operator to recognize when user stops typing, and then the client sends the query to the server automaticlly without press any button.
 
 ## Development server
 
