@@ -1,0 +1,13 @@
+<mat-card >
+  <div class="flex justify-between">
+    <mat-card-header>
+        <img mat-card-avatar src="{{repository?.owner?.avatarUrl}}" >
+        <mat-card-title> {{repository?.owner?.name}}/{{repository?.name}} </mat-card-title>
+        <mat-card-subtitle> {{repository?.description || "There Is No Description"}} </mat-card-subtitle>
+      </mat-card-header>
+      <mat-button-toggle (click)="onBookmark()" [class.mat-button-toggle-checked]="isBookmarked" aria-label="asd">
+        <mat-icon>bookmark</mat-icon>
+      </mat-button-toggle>
+    </div>
+  </mat-card>
+

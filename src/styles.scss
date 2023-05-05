@@ -1,1 +1,140 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*{
+    box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+
+
+@mixin setSizeAttr($attr) {
+    @for $i from 0 to 11 {
+        @if (#{$attr} != "padding" && #{$attr} != "gap") {
+            .#{$attr}-#{$i}\/10 {
+                #{$attr}: $i/ 10*100%;
+            }
+        }
+        .#{$attr}-#{$i} {
+            #{$attr}: #{$i*.25rem}
+        }
+    }
+}
+
+@for $i from 0 to 100 {
+    .z-index-#{$i} {
+        z-index: $i;
+    }
+}
+
+@include setSizeAttr("width");
+@include setSizeAttr("height");
+@include setSizeAttr("padding");
+@include setSizeAttr("gap");
+@include setSizeAttr("left");
+@include setSizeAttr("top");
+@include setSizeAttr("right");
+@include setSizeAttr("bottom");
+
+.flex {
+    display: flex;
+
+    &-col {
+        flex-direction: column;
+    }
+
+    &-row {
+        flex-direction: row;
+    }
+
+    &-wrap {
+        flex-wrap: wrap;
+    }
+
+    &-nowrap {
+        flex-wrap: nowrap;
+    }
+    &-grow-1{
+        flex-grow: 1;
+    }
+
+}
+
+.justify {
+    &-center {
+        justify-content: center;
+    }
+    &-between {
+        justify-content: space-between;
+    }
+    &-around {
+        justify-content: space-around;
+    }
+    &-evenly {
+        justify-content: space-evenly;
+    }
+    &-start {
+        justify-content: flex-start;
+    }
+    &-end {
+        justify-content: flex-end;
+    }
+}
+
+.align  {
+    &-start {
+        align-items: flex-start;
+    }
+    &-end {
+        align-items: flex-end;
+    }
+    &-center {
+        align-items: center;
+    }
+
+}
+
+.overflow {
+    &-hidden {
+        overflow: hidden;;
+    }
+    &-auto {
+        overflow: auto;
+    }
+}
+
+.fixed{
+    position: fixed;
+}
+.relative{
+    position: relative;   
+}
+.absolute{
+    position: absolute;
+}
+
+.sticky{
+    position: sticky;
+}
+
+.err-message {
+    padding: 1rem;
+    // background-color: rgba(255, 206, 206, 0.8);
+    // border: 1px solid red;
+    color: red;
+    // width: 200px;
+}
+
+.success-snackbar{
+    background-color: rgba(#A5D6A7,.7);
+    color: #000000;
+    font-weight: 500;
+    button{
+        color: #2979FF;
+    }
+}

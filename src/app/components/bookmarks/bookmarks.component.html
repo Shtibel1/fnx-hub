@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <h2 class="flex justify-center">Bookmarks</h2>
+    <br>
+    <div *ngIf="markedRepositories" class="flex flex-col gap-6">
+        <app-repository *ngFor="let repo of markedRepositories" [repository]="repo" ></app-repository>
+        
+    </div>
+
+    <div *ngIf="!markedRepositories || markedRepositories.length < 1" class="message-wrapper flex justify-center align-center flex-col gap-4">
+        <p>You don't have any bookmarks!</p>
+        <p>Added bookmarks will show here.</p>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.wrap-screen{
+    background-color: #F5F5F5;
+    app-header{
+        z-index: 1;
+    }
+    .wrap-main{
+        align-self: center;
+        padding: 16px;
+        width: 100%;
+        overflow: auto;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        .main{
+            width: 100%;
+            max-width: 1000px;
+        }
+    }
+}

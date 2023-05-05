@@ -1,0 +1,14 @@
+<mat-toolbar class="flex gap-8">
+
+    <span class="logo">FnxHub</span>
+
+    <div class="flex justify-between flex-grow-1" *ngIf="user" >
+        <div class="flex">
+            <button mat-button routerLink="search" routerLinkActive="mat-primary">Search</button>
+            <button mat-button routerLink="bookmarks" routerLinkActive="mat-primary">Bookmarks</button>
+        </div>
+        <div>
+            <button  (click)="onLogout()" mat-button routerLink="auth">Logout</button>
+        </div>
+    </div>
+</mat-toolbar>

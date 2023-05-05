@@ -1,0 +1,28 @@
+<div class="height-10/10 width-10/10 flex flex-col align-center justify-center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col wrapper-authForm" *ngIf="!isLoading">
+        <div class="form-header flex justify-center">
+            <h2>{{loginMode ? "Login" : "Signup"}}</h2>
+        </div>
+        <br />
+        <p *ngIf="errMessage" class="err-message">{{errMessage}}</p> 
+        <mat-form-field appearance="standard">
+            <mat-label>username</mat-label>
+            <input matInput formControlName="username" required>
+            <mat-error >required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>password</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error>required</mat-error>
+        </mat-form-field>
+        <div class="form-footer flex flex-col gap-3">
+            <button mat-raised-button type="submit" [disabled]="form.invalid" color="primary"> {{loginMode ? "Login" : "Signup"}} </button>
+            <button mat-raised-button [routerLink]="loginMode ?  '/signup' : '/login' " type="button" color="scondery"> Or {{loginMode ? "Signup" : "Login"}} </button>
+        </div>
+        <br>
+    </form>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>   

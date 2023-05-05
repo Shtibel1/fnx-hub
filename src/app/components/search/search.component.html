@@ -1,0 +1,22 @@
+<div class="wrapper ">
+    <div class="search-box-wrapper flex justify-center">
+
+        <mat-form-field class="searchInput" appearance="legacy">
+            <mat-label>Search</mat-label>
+            <input matInput #search type="text" [formControl]="searchCtrl">
+            <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+        <!-- <input type="text" class="search-box"  [formControl]="search" placeholder="Search"> -->
+    </div>
+    <div class="repositories-wrapper">
+        <div *ngIf="errorMsg">
+            {{errorMsg}}
+        </div>
+        <app-repositories></app-repositories>
+    </div>
+    
+    <div class="flex justify-center">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+</div>
+
